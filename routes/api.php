@@ -23,6 +23,7 @@ Route::namespace("App\\Http\\Controllers\\Api\\V1")->group(function () {
         Route::middleware('auth:api')->group(function () {
             Route::get('/v1/logout','ApiController@logout');
             Route::get('/v1/userData','ApiController@getUserDetail');
+            Route::get('/v1/myPorfile','ApiController@myPorfile');
 
             //Novels Routes
             Route::get('/v1/novels/{indice}','NovelController@Index');
@@ -54,13 +55,9 @@ Route::namespace("App\\Http\\Controllers\\Api\\V1")->group(function () {
             //Users Routes
             Route::get('/v1/user/{indice}','UserController@Index');
             Route::get('/v1/user/{indice}/{username}','UserController@IndexName');
-            Route::get('/v1/user/{id}','UserController@porfile');
             Route::get('/v1/user/novels','UserController@getNovels');
-            Route::get('/v1/user/novels/coo','UserController@getNovelsCoo');
-            Route::get('/v1/user/novel/{id}/coo','UserController@getChapterCoo');
             Route::get('/v1/user/message','UserController@Message');
-            Route::get('/v1/user/update','UserController@Update');
-            Route::get('/v1/user/Acept/Coo/{id}','UserController@AceptCoo');
+            Route::post('/v1/user/update','UserController@Update');
             Route::get('/v1/user/closeCount','UserController@CloseCount');
 
             //Chapters Routes
